@@ -8,8 +8,6 @@
 * Author URI: https://www.promitex.it/
 **/
 
-<?php
-
 /**
  * CRUD Capitoli P.U.R.
  */
