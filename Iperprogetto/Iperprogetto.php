@@ -9,7 +9,7 @@
 **/
 
 function main() {
-    echo '<p>Questo è il mio primo plugin WordPress!</p>';
+    //echo '<p>Questo è il mio primo plugin WordPress!</p>';
 }
 
 add_action( 'wp_footer', 'main' );
