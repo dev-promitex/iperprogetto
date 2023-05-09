@@ -7934,7 +7934,7 @@ function get_products_custom_vendor_label_homepage(){
 	//$pagination = paginate_links($args);
 	
 	$html .= '<div class="pagination">';
-	$html .= '<a href="https://iperprogetto.it/catalogo/"><button class="pagination-item icon_in_button">Vedi altro <span class="dashicons dashicons-arrow-right-alt2"></span></button></a>';
+	$html .= '<a href="https://iperprogetto.it/catalogo/" style="font-weight: 500; font-size: 20px;"><u>Vedi altro</u></a>';
 	$html .= '</div>';
 
 		
