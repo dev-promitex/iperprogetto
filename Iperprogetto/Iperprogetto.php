@@ -569,7 +569,6 @@ function paragraph_list(){
 
 
 </script>
-	
 
 
 <?php
