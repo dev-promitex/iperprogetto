@@ -4,6 +4,10 @@ function pur_menu(){
 
 	global $wpdb;
 
+
+
+
+
 ?>
 
 <head>
