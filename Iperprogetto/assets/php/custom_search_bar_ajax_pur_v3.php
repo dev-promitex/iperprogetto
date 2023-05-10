@@ -201,6 +201,7 @@ function search_bar_live_search(){
 					var checkChapter3 = setInterval(function() {
 						if ($(".paragraphs_selector").length) {
 							clearInterval(checkChapter3); // rimuovi l'intervallo
+							//console.log("aspetto che si generino i paragrafi");
 							$(".paragraphs_selector").val(head_paragraphs).change();
 						}
 					}, 100);
@@ -242,9 +243,7 @@ function search_bar_live_search(){
 
 			
 			$(document).on( "mouseenter", ".click_for_open", function() {
-				/*let id = $(this).attr("data-id");
-				let region = $(this).attr("data-region");
-				let chapter = $(this).attr("data-chapter");
+		
 				$(this).addClass('on_hover_results');	
 			});
 			
