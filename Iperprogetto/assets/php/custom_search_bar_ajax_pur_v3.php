@@ -1,4 +1,4 @@
-1<?php
+<?php
 
 function custom_search_bar() {
 	
