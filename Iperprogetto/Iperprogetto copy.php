@@ -1,4 +1,4 @@
-<!-- <!-- <?php
+<!--  <?php
 /**
 * Plugin Name: IperProgetto
 * Plugin URI: https://www.iperprogetto.it/
