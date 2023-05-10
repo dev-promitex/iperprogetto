@@ -66,7 +66,6 @@ function wpb_hook_javascript() {
 			  	function trackImpression(postId) {
 				if (!viewedProducts.includes(postId)) {
 				  // qui puoi inserire la tua chiamata per il conteggio dell'impressione
-				  console.log('Impressione conteggiata per il prodotto ' + postId);
 				  //
 					$.ajax({
 						url: "/wp-admin/admin-ajax.php",
@@ -77,7 +76,6 @@ function wpb_hook_javascript() {
 							impression_value: 1
 						},
 						success: function(response) {
-							//console.log(response);
 						}
 
 					});
@@ -120,7 +118,6 @@ function wpb_hook_javascript() {
 					var postId = $this.closest('.etheme-product-grid-item').attr('class').match(/post-(\d+)/);
 					if (postId) {
 					  postId = postId[1];
-					//console.log(postId);
 					  setTimeout(function() {
 						trackImpression(postId);
 					  }, delay);
@@ -134,7 +131,6 @@ function wpb_hook_javascript() {
 					if (postId) {
 					  postId = postId[1];
 					  // qui puoi inserire la tua chiamata per il conteggio del click
-					  //console.log('Click conteggiato per il prodotto ' + postId);
 						
 						$.ajax({
 						url: "/wp-admin/admin-ajax.php",
@@ -145,7 +141,6 @@ function wpb_hook_javascript() {
 							click_value: 1
 						},
 						success: function(response) {
-							//console.log(response);
 						}
 
 					});
@@ -186,7 +181,6 @@ function wpb_hook_javascript() {
 				data: new Date().toISOString()
 			  };
 				
-			console.log('dati:', dati_evento);
 			
 	
 

@@ -103,7 +103,6 @@ function custom_my_account_endpoint_content()
 				
 				if (confirm("Sei sicuro di voler rimuovere questa riga?")) {
 					var id_nota = $(this).attr('data-id');
-					console.log(id_nota);
 					$.ajax({
 						url: "/wp-admin/admin-ajax.php",
 						type: "POST",

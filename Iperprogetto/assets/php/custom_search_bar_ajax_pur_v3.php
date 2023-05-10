@@ -62,7 +62,6 @@ function search_bar_live_search(){
 							success: function (response) {
 
 								const paragraphs = JSON.parse(response)
-								console.log(paragraphs);
 
 								let responseHtml = '';
 
@@ -97,15 +96,12 @@ function search_bar_live_search(){
 
 
 
-										//const content = p.paragraphs_content.slice(0, 80) + '...'
-										//console.log(p)
 										responseHtml += '<div class="click_for_open"><p style="margin:10px; padding:10px;" data-id="'+p.id+'" data-region="'+p.region+'" data-chapter="'+p.chapter+'"  data-subchapter="'+p.subchapter+'" data-head_paragraphs="'+p.head_paragraphs+'"><strong>' + p.region+ ': ' + p.chapter + '.' + p.subchapter + '.' + p.head_paragraphs + ')</strong> ' + highlighted + '</p></div>'
 									})
 
 
 
 
-									//console.log(responseHtml);
 
 								}
 
@@ -176,7 +172,6 @@ function search_bar_live_search(){
 				let chapter = $(this).attr("data-chapter");
 				let subchapter = $(this).attr("data-subchapter");
 				let head_paragraphs = $(this).attr("data-head_paragraphs");
-				console.log(id,region, chapter, subchapter, head_paragraphs);
 				
 				clearTimeout(clickTimeout);
 				clickTimeout = setTimeout(function() {
@@ -187,7 +182,6 @@ function search_bar_live_search(){
 						if ($(".chapter_selector").length) {
 							clearInterval(checkChapter); // rimuovi l'intervallo
 							// esegui altre azioni in base all'elemento generato
-							console.log("aspetto che si generi chapter");
 							//$(".chapter_selector").val(chapter).click();
 							$(".chapter_selector").val(chapter).change();
 						}
@@ -197,7 +191,6 @@ function search_bar_live_search(){
 						if ($(".subchapter_selector").length) {
 							clearInterval(checkChapter2); // rimuovi l'intervallo
 							// esegui altre azioni in base all'elemento generato
-							console.log("aspetto che si generi subchapter");
 							//$(".subchapter_selector").val(subchapter).click();
 							$(".subchapter_selector").val(subchapter).change();
 						}
@@ -208,7 +201,6 @@ function search_bar_live_search(){
 					var checkChapter3 = setInterval(function() {
 						if ($(".paragraphs_selector").length) {
 							clearInterval(checkChapter3); // rimuovi l'intervallo
-							console.log("aspetto che si generino i paragrafi");
 							$(".paragraphs_selector").val(head_paragraphs).change();
 						}
 					}, 100);
@@ -253,13 +245,10 @@ function search_bar_live_search(){
 				/*let id = $(this).attr("data-id");
 				let region = $(this).attr("data-region");
 				let chapter = $(this).attr("data-chapter");
-				console.log(id,region, chapter);*/
-				//console.log("sopra risultato");
 				$(this).addClass('on_hover_results');	
 			});
 			
 			$(document).on( "mouseleave", ".click_for_open", function() {
-				//console.log("fuori risultato");
 				$(this).removeClass('on_hover_results');	
 			});
 

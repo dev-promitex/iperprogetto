@@ -734,12 +734,10 @@ function get_attributes_product($subcategory_id){
 				  
 					var searchText = $(this).val().toLowerCase();
 					var foundLabels = false;
-					//console.log(searchText);
 					
 					$(".vendor_name").each(function()
 					{
 					  let labelValue = $(this).text().toLowerCase();
-					  console.log($(this).text());
 					  
 					  if (labelValue.indexOf(searchText) !== -1) 
 					  {
@@ -779,12 +777,10 @@ function get_attributes_product($subcategory_id){
 							if (current_url.indexOf("?") !== -1) 
 							{
 								window.location.replace(current_url + "&" + checkbox_name + "=" + checkbox_value);
-								console.log(current_url + "&" + checkbox_name + "=" + checkbox_value);
 							} 
 							else 
 							{				  	
 								window.location.replace(current_url + "?" + checkbox_name + "=" + checkbox_value);
-								console.log(current_url + "?" + checkbox_name + "=" + checkbox_value);
 							}
 
 					
@@ -829,9 +825,7 @@ function get_attributes_product($subcategory_id){
 					$(document).on("click", "label a#delete_filter", function(){
 						
 						let filter_name = $(this).attr("name");
-						console.log(filter_name);
 						let filter_value = $(this).attr("value");
-						console.log(filter_value);
 						
 						let url = window.location.href;
 						current_url = url.replace(/\/page\/\d+\//, "/");
@@ -862,10 +856,8 @@ function get_attributes_product($subcategory_id){
 	$json_params = json_encode($params2);
 
 	$html .= 'let params = '.$json_params.';
-				//console.log(params);
 			  $.each(params, function(key, value) {
 			  	let key_split = key.split("-");
-				//console.log(key_split[0]);
 			  	$("input[type=checkbox][name^="+key_split[0]+"][value="+ value +"]").prop("checked", true);
 			  });
 

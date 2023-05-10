@@ -358,7 +358,6 @@ function display_posts_by_category_bandi( $atts ) {
 			const category = urlParams.get('categoria');
 			$.each(catLinks, function(idx,elm) {
 
-				console.log(elm.dataset.catId, category);
 				if(elm.dataset.catId == category) {
 					$(elm).addClass('active-strong');
 				} else if(elm.dataset.catId !== category && category  !== null) {
