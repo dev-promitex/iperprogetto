@@ -322,14 +322,11 @@ function pur_menu(){
 
 							
 							data = JSON.parse(response);
-							console.log(data);
 							let html = '<div><select class="select_pur_iperpro paragraphs_selector" name="paragraphs_sel_" id="paragraphs"><option disabled selected>Seleziona paragrafo</option>';
 							
 							let content;
 
 							for (let i = 0; i < data.length; i++) {
-
-								console.log(data[i].paragraphs_content);
 
 								content = data[i].paragraphs_content.replace(/(<([^>]+)>)/ig, '');
 
@@ -360,7 +357,6 @@ function pur_menu(){
 					let selected_subchapter = $('#subchapter').val();
 					let selected_paragraphs = $(this).val();
 
-					console.log(selected_region, selected_chapter, selected_subchapter, selected_paragraphs);
 
 
 
