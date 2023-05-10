@@ -2,7 +2,7 @@
 
 function pur_menu(){
 
-	global $wpdb;
+	//global $wpdb;
 
 
 
@@ -11,6 +11,8 @@ function pur_menu(){
 ?>
 
 <head>
+
+
 
 	<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet'>
 
@@ -178,10 +180,7 @@ function pur_menu(){
 
 
 	<body>
-		<?php 
-	//$results_chapter = $wpdb->get_results("SELECT * FROM hfu_pur_chapters");
-	//$results_subchapter = $wpdb->get_results("SELECT * FROM hfu_pur_subchapters");
-		?>
+
 
 		<div class="container">
 			<div class="row">
@@ -321,14 +320,18 @@ function pur_menu(){
 						},
 						success: function(response) {
 
-							let coversion = JSON.stringify(response);
-							data = JSON.parse(coversion);
-
+							
+							data = JSON.parse(response);
+							console.log(data);
 							let html = '<div><select class="select_pur_iperpro paragraphs_selector" name="paragraphs_sel_" id="paragraphs"><option disabled selected>Seleziona paragrafo</option>';
+							
+							let content;
 
 							for (let i = 0; i < data.length; i++) {
 
-								let content = data[i].paragraphs_content.replace(/(<([^>]+)>)/ig, '');
+								console.log(data[i].paragraphs_content);
+
+								content = data[i].paragraphs_content.replace(/(<([^>]+)>)/ig, '');
 
 								html += '<option id="access_css" value="' + data[i].head_paragraphs + '">' + data[i].head_paragraphs + '. ' + content.slice(0,80) + '...</option>';
 								
@@ -374,8 +377,7 @@ function pur_menu(){
 						},
 						success: function(response) {
 
-							let conversion = JSON.stringify(response);
-							let data2 = JSON.parse(conversion);
+							let data2 = JSON.parse(response);
 
 							let html2 = '<div class="row"><div class="col">';
 
@@ -445,9 +447,13 @@ function pur_menu(){
 			});
 		</script>
 
+		
+
 
 
 		<?php
 }
 
 add_shortcode('pur', 'pur_menu');
+
+?>
