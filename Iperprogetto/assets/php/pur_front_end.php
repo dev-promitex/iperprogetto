@@ -1,182 +1,180 @@
 <?php
 
-function pur_menu(){
+function pur_menu()
+{
 
 	//global $wpdb;
 
 
-
-
-
 ?>
 
-<head>
-
-
-
-	<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet'>
-
-	<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js'></script>
-
-
-	<style>
-		.elementor-section.elementor-section-boxed > .elementor-container {
-			max-width: 1175px !important;
-		}
-		
-		.select_pur_iperpro {
-			background-image: url('/wp-content/uploads/2023/03/Untitled-design-1.png');
-			background-position: right;
-			background-size: 1500px;
-			border: none;
-			border-radius: 15px;
-			width: 570px;
-		}
-		
-
-
-
-		.button_up {
-			border: none;
-			border-radius: 24px;
-			color: black;
-			background-color: #F5F5F5;
-			padding: 10px 10px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 10px 10px;
-			cursor: pointer;
-		}
-
-		.button_up:hover {
-			background-color: #1E3B88;
-			color: white;
-		}
-
-		.button_coll {
-			border: none;
-			color: black;
-			background-color: #F5F5F5;
-			padding: 10px 10px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 5px 5px;
-			cursor: pointer;
-
-		}
-
-		.button_coll:hover {
-			background-color: #1E3B88;
-			color: white;
-
-		}
-
-		.bg_blue {
-			background-color: #1E3B88 !important;
-			color: white !important;
-		}
-
-		.collapse {}
-
-		.div_ {
-
-			margin-left: 25px;
-		}
-
-		a {
-			color: black
-		}
-
-		a:hover {
-			color: white;
-		}
-
-		.button_up {
-			border: none;
-			border-radius: 24px;
-			color: black;
-			background-color: #F5F5F5;
-			padding: 10px 10px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 4px 2px;
-			cursor: pointer;
-		}
-
-		.button_up:hover {
-			background-color: #1E3B88;
-			color: white;
-		}
-
-		.button_coll {
-			border: none;
-			color: black;
-			background-color: #F5F5F5;
-			padding: 10px 10px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 4px 2px;
-			cursor: pointer;
-		}
-
-		.button_coll:hover {
-			background-color: #1E3B88;
-			color: white;
-		}
-
-		.button_coll:active {
-			background-color: #1E3B88;
-			color: white;
-
-		}
-
-		.pur-select {
-			margin-top: 10px;
-		}
-
-		.div_ {
-
-			margin-left: 25px;
-		}
-
-		.btn-blue {
-			padding: 10px 5px;
-			color: white;
-			border: none;
-			border-radius: 15px;
-			background:#1E3B88; 
-		}
-
-		#style-1::-webkit-scrollbar-track {
-			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
-			border-radius: 10px;
-			background-color: rgba(0, 0, 0, 0.0);
-		}
-
-		#style-1::-webkit-scrollbar {
-			width: 12px;
-			background-color: rgba(0, 0, 0, 0.0);
-		}
-
-		#style-1::-webkit-scrollbar-thumb {
-			border-radius: 10px;
-			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.0);
-			background-color: #d4d4d4;
-		}
-		
-		
-	</style>
-
 	<head>
-	</head>
+
+		<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet'>
+		<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js'></script>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+
+		<style>
+			.elementor-section.elementor-section-boxed>.elementor-container {
+				max-width: 1175px !important;
+			}
+
+			.select_pur_iperpro {
+				background-image: url('/wp-content/uploads/2023/03/Untitled-design-1.png');
+				background-position: right;
+				background-size: 1500px;
+				border: none;
+				border-radius: 15px;
+				width: 570px;
+			}
+
+
+
+
+			.button_up {
+				border: none;
+				border-radius: 24px;
+				color: black;
+				background-color: #F5F5F5;
+				padding: 10px 10px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 10px 10px;
+				cursor: pointer;
+			}
+
+			.button_up:hover {
+				background-color: #1E3B88;
+				color: white;
+			}
+
+			.button_coll {
+				border: none;
+				color: black;
+				background-color: #F5F5F5;
+				padding: 10px 10px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 5px 5px;
+				cursor: pointer;
+
+			}
+
+			.button_coll:hover {
+				background-color: #1E3B88;
+				color: white;
+
+			}
+
+			.bg_blue {
+				background-color: #1E3B88 !important;
+				color: white !important;
+			}
+
+			.collapse {}
+
+			.div_ {
+
+				margin-left: 25px;
+			}
+
+			a {
+				color: black
+			}
+
+			a:hover {
+				color: white;
+			}
+
+			.button_up {
+				border: none;
+				border-radius: 24px;
+				color: black;
+				background-color: #F5F5F5;
+				padding: 10px 10px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+
+			.button_up:hover {
+				background-color: #1E3B88;
+				color: white;
+			}
+
+			.button_coll {
+				border: none;
+				color: black;
+				background-color: #F5F5F5;
+				padding: 10px 10px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+
+			.button_coll:hover {
+				background-color: #1E3B88;
+				color: white;
+			}
+
+			.button_coll:active {
+				background-color: #1E3B88;
+				color: white;
+
+			}
+
+			.pur-select {
+				margin-top: 10px;
+			}
+
+			.div_ {
+
+				margin-left: 25px;
+			}
+
+			.btn-blue {
+				padding: 10px 5px;
+				color: white;
+				border: none;
+				border-radius: 15px;
+				background: #1E3B88;
+			}
+
+			#style-1::-webkit-scrollbar-track {
+				-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+				border-radius: 10px;
+				background-color: rgba(0, 0, 0, 0.0);
+			}
+
+			#style-1::-webkit-scrollbar {
+				width: 12px;
+				background-color: rgba(0, 0, 0, 0.0);
+			}
+
+			#style-1::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.0);
+				background-color: #d4d4d4;
+			}
+		</style>
+
+		<head>
+		</head>
 
 
 	<body>
@@ -193,6 +191,8 @@ function pur_menu(){
 				<div id="chapter_sel" class="pur-select"></div>
 				<div id="sub_chapter_sel" class="pur-select"></div>
 				<div id="content" class="pur-select"></div>
+
+
 
 			</div>
 		</div>
@@ -320,19 +320,19 @@ function pur_menu(){
 						},
 						success: function(response) {
 
-							
-							data = JSON.parse(response);
+
+							data = JSON.parse(JSON.stringify(response));
 							let html = '<div><select class="select_pur_iperpro paragraphs_selector" name="paragraphs_sel_" id="paragraphs"><option disabled selected>Seleziona paragrafo</option>';
-							
+
 							let content;
 
 							for (let i = 0; i < data.length; i++) {
 
 								content = data[i].paragraphs_content.replace(/(<([^>]+)>)/ig, '');
 
-								html += '<option id="access_css" value="' + data[i].head_paragraphs + '">' + data[i].head_paragraphs + '. ' + content.slice(0,80) + '...</option>';
-								
-							
+								html += '<option id="access_css" value="' + data[i].head_paragraphs + '">' + data[i].head_paragraphs + '. ' + content.slice(0, 80) + '...</option>';
+
+
 
 							}
 
@@ -348,17 +348,12 @@ function pur_menu(){
 
 				}); //chiusura #subchapter
 
-				$(document).on( "change", "#paragraphs", function(){
-
-
+				$(document).on("change", "#paragraphs", function() {
 
 					let selected_region = $('#regioni').val();
 					let selected_chapter = $('#chapter').val();
 					let selected_subchapter = $('#subchapter').val();
 					let selected_paragraphs = $(this).val();
-
-
-
 
 					$.ajax({
 						url: "/wp-admin/admin-ajax.php",
@@ -373,7 +368,7 @@ function pur_menu(){
 						},
 						success: function(response) {
 
-							let data2 = JSON.parse(response);
+							let data2 = JSON.parse(JSON.stringify(response));
 
 							let html2 = '<div class="row"><div class="col">';
 
@@ -404,9 +399,9 @@ function pur_menu(){
 									prec_par = data2[i].paragraphs;
 								}
 
-								let test = parseFloat(data2[i].price.replace(',','.',).replace('€',''),2) * parseFloat(data2[i].vat.replace(',','.',).replace('%',''),2)/100.00;
+								let test = parseFloat(data2[i].price.replace(',', '.', ).replace('€', ''), 2) * parseFloat(data2[i].vat.replace(',', '.', ).replace('%', ''), 2) / 100.00;
 
-								html2 += '<div class="row"><div class="col-5"><p style="text-align: justify;"><strong>' + data2[i].voice_id + ')</strong> ' + data2[i].text_content + '</p></div><div class="col text-center align-self-end p-0 mb-2"><p>' + data2[i].unit + '</p></div><div class="col text-center align-self-end p-0 mb-2"><p><strong>€ ' + data2[i].price + '</strong></p></div><div class="col text-center align-self-end p-0 mb-2"><p>' + data2[i].vat + '    <strong>(€ '+test.toFixed(2)+')</strong></p></div><div class="col text-center align-self-end p-0"><p><button id="save-note-btn" data-value-voice-id="' + data2[i].id + '" class="btn-blue" >Salva su note</button></p></div></div>';	
+								html2 += '<div class="row"><div class="col-5"><p style="text-align: justify;"><strong>' + data2[i].voice_id + ')</strong> ' + data2[i].text_content + '</p></div><div class="col text-center align-self-end p-0 mb-2"><p>' + data2[i].unit + '</p></div><div class="col text-center align-self-end p-0 mb-2"><p><strong>€ ' + data2[i].price + '</strong></p></div><div class="col text-center align-self-end p-0 mb-2"><p>' + data2[i].vat + '    <strong>(€ ' + test.toFixed(2) + ')</strong></p></div><div class="col text-center align-self-end p-0"><p><button id="save-note-btn" data-value-voice-id="' + data2[i].id + '" class="btn-blue" >Salva su note</button></p></div></div>';
 							}
 
 							html2 += '</div></div>'
@@ -414,13 +409,56 @@ function pur_menu(){
 
 						} //chiusure response success
 					}); //Chiusura seconda ajax */
+					
+					let category_select =  $('#subchapter').val();
 
-
+					$.ajax({
+						url: '/wp-admin/admin-ajax.php', // Specifica l'URL del tuo file PHP
+						method: 'POST', // Puoi utilizzare anche il metodo 'GET' se preferisci
+						data: {
+							action: 'carosello_prodotti_pur', // Specifica il nome del tuo shortcode
+							category_product: category_select, // Specifica eventuali parametri necessari per il tuo shortcode
+						},
+						success: function(response) {
+							// Gestisci la risposta dal server
+							$("#recommended_products").html(response);
+							//applica silder al div dei prodotti correlati
+							run_slider();
+						},
+						error: function(error) {
+							// Gestisci gli errori, se presenti
+							console.log(error);
+						}
+					});
 				});
 
+				function run_slider() {
+					$(".product-carousel").slick({
+						slidesToShow: 4,
+						slidesToScroll: 4,
+						arrows: true,
+						prevArrow: '<button type="button" style="color: red; font-size: 16px;" class="slick-prev">←</button>',
+						nextArrow: '<button type="button" style="color: red; font-size: 16px;" class="slick-next">→</button>',
+						responsive: [{
+								breakpoint: 1024,
+								settings: {
+									slidesToShow: 2,
+									slidesToScroll: 2,
+									infinite: true,
+								}
+							},
+							{
+								breakpoint: 600,
+								settings: {
+									slidesToShow: 1,
+									slidesToScroll: 1
+								}
+							}
+						]
+					});
+				}
 
-
-				$(document).on( 'click', '#save-note-btn', function () {
+				$(document).on('click', '#save-note-btn', function() {
 
 					let id_ai_voice = $(this).attr('data-value-voice-id');
 					let id_user = <?php echo get_current_user_id(); ?>;
@@ -443,13 +481,15 @@ function pur_menu(){
 			});
 		</script>
 
-		
 
 
 
-		<?php
+
+	<?php
 }
 
 add_shortcode('pur', 'pur_menu');
 
-?>
+
+
+	?>

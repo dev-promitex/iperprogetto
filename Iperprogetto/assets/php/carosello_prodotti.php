@@ -290,4 +290,5 @@ function my_product_carousel_shortcode( $atts ) {
 
 	return $output;
 }
+
 add_shortcode( 'product-carousel', 'my_product_carousel_shortcode' );
