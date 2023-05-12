@@ -1,7 +1,5 @@
 <?php
 
-include '';
-
 function products_single_vendor_count($vendor_id){
 	$args = array(
 		'post_type' => 'product',
@@ -18,7 +16,7 @@ function products_single_vendor_count($vendor_id){
 	$query = new WP_Query( $args );
 	$products = $query->get_posts();
 
-	return count( $products );
+	return $count = count( $products );
 
 }
 

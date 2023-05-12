@@ -895,4 +895,4 @@ function show_attributi_prodotti_figli_shortcode() {
 
 }
 
-add_shortcode( 'show_attributes_products_last_children_category', 'show_attributi_prodotti_figli_shortcode' );
+add_shortcode( 'show_attributes_products_last_children_category', 'show_attributi_prodotti_figli_shortcode' ); 
