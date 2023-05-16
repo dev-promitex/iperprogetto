@@ -7,7 +7,7 @@ function total_click_user()
 	
 	$result = $wpdb->get_results("SELECT DATE(`data`) AS data, SUM(`counter`) AS somma FROM hfu_tracking_data WHERE post_id IN (SELECT post_id FROM hfu_postmeta WHERE meta_key = 'vendor_user' AND meta_value = " . get_current_user_id() . ") AND DATE(`data`) BETWEEN DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND CURDATE() AND `type` = 'click' GROUP BY DATE(`data`)");
 	
-	if(current_user_can( 'venditore' ) || current_user_can( 'operatore' )){
+	if(current_user_can( 'venditore' ) || current_user_can( 'operatore' ) ){
 	
 	?>	
 

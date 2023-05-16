@@ -11,7 +11,6 @@ add_action('init', 'start_session', 1);
 // Funzione per aggiungere l'ID del prodotto visitato nella sessione
 function aggiungi_prodotto_visitato()
 {
-
     if (is_singular('product')) {
         // Verifica se la pagina corrente è una pagina di prodotto
         global $post;

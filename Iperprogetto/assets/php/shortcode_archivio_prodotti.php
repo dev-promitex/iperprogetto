@@ -154,7 +154,6 @@ function get_products_custom_last_category($category_id){
 			
 			$meta_query[] = array(
 				'key' => 'vendor_user',
-				//'value' =>  $value,
 				'value' => $stringa,
 				'compare' => 'IN',
 			);
@@ -242,6 +241,7 @@ function get_products_custom_last_category($category_id){
 			$html .= '<div class="product_image"><a href="'. get_permalink().'"><img src="'.$img.'" style="object-fit: cover; border-radius: 22px 22px 0px 0px;"></a>';
 			
 			$html .= '<div class="stamps_wrapper">';
+			
 			// logica bollini 
 			if(get_field('pur_approved') == true) {
 				$html .= '<img class="stamp_item" src="/wp-content/uploads/2023/05/Icone_pur-approved.svg"/>';
