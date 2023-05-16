@@ -170,6 +170,7 @@ function vendor_list(){
 	// paginazione
 	jQuery(document).ready(function($) {
 
+
 		var pageSize = 12; // Numero di elementi da mostrare per pagina
 		var pageCount = Math.ceil($('.vendor-card-iperpro').length / pageSize); // Calcola il numero totale di pagine necessarie
 		var currentPage = 1; // Pagina corrente
