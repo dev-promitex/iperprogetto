@@ -68,7 +68,9 @@ function custom_search_shortcode($atts) {
 		text-align: center;
 		
     font-size: 20px;
-
+	display: flex;
+    align-items: center;
+    justify-content: center;
 	}
 
 	.custom-search-wrapper #custom-search-results {
