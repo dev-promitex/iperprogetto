@@ -11,7 +11,7 @@ function get_products_custom_last_category($category_id){
 			grid-template-columns: repeat(3, 1fr);
 			display: grid;
 			justify-items: start;
-			margin-left: 50px;  
+			/*margin-left: 50px; */
 		}
 
 		.product_custom_iperproject{
@@ -137,7 +137,7 @@ function get_products_custom_last_category($category_id){
 		}
 
 		// Split del parametro
-		$parts = explode('-', $key);
+		$parts = explode('~', $key);
 
 		// Se il parametro fa riferimento all'ID del vendor, aggiungi una query meta
 		if (strpos($key, "vendor_user_id_filter-") !== false) {
@@ -535,7 +535,7 @@ function get_attributes_product($subcategory_id){
 		else
 		{
 
-			$parts = explode("-", $key);
+			$parts = explode("~", $key);
 
 			// Aggiungi la prima query tassonomica
 			$add_attr = array(
@@ -607,14 +607,6 @@ function get_attributes_product($subcategory_id){
 
 			if ( $terms ) {
 				
-				/*$html .= '
-		<div style=" margin-top: 0px; margin-bottom: 15px;">
-				<button type="button" class="collapsible">
-					<p style="color: white;  margin-right: auto; font-size: 14px;">'.$taxonomy->labels->singular_name.'</p>
-					 <span class="right-element"><img src="https://iperprogetto.it/wp-content/uploads/2023/04/Vector_down.png" width="15"></span>
-				</button>
-					<div class="content">
-					';*/
 				
 				$html .= '
 					<a class="collapsible">
@@ -625,7 +617,7 @@ function get_attributes_product($subcategory_id){
 					';
 				
 				foreach ( $terms as $term ) {
-					$html .= '<label style="width:150px;"><input type="checkbox" name="'.$attribute_name.'-'.$count.'" value="'.$term->slug.'">'.$term->name.'</label>';
+					$html .= '<label style="width:150px;"><input type="checkbox" name="'.$attribute_name.'~'.$count.'" value="'.$term->slug.'">'.$term->name.'</label>';
 					$count ++;	
 
 				}
@@ -857,7 +849,7 @@ function get_attributes_product($subcategory_id){
 
 	$html .= 'let params = '.$json_params.';
 			  $.each(params, function(key, value) {
-			  	let key_split = key.split("-");
+			  	let key_split = key.split("~");
 			  	$("input[type=checkbox][name^="+key_split[0]+"][value="+ value +"]").prop("checked", true);
 			  });
 
