@@ -64,7 +64,7 @@ function my_product_carousel_shortcode($atts)
 	<style>
 		.products_grid_custom_iperproject {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(3, 1fr));
 			grid-gap: 20px;
 			justify-content: center;
 			align-items: center;
