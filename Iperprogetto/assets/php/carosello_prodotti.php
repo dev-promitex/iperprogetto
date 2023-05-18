@@ -3,8 +3,7 @@
 function my_product_carousel_shortcode($atts)
 {
 
-	if (isset($atts['last_product_visited']))
-	{
+	if (isset($atts['last_product_visited'])) {
 
 		$last_product_visited = explode(',', $atts['last_product_visited']);
 
@@ -14,16 +13,13 @@ function my_product_carousel_shortcode($atts)
 
 			array_push($fix, intval($value));
 		}
-		
+
 		$args = array(
 			'post_type' => 'product',
 			'post__in' => $fix,
 			'orderby' => 'post__in'
 		);
-	} 
-	
-	else 
-	{
+	} else {
 
 		$atts = shortcode_atts(array(
 			'limit' => 12,
@@ -130,13 +126,17 @@ function my_product_carousel_shortcode($atts)
 		.stamps_wrapper {
 			position: absolute;
 			left: 0;
-			bottom: 0;
 			right: 0;
 			display: flex;
+			gap: 7px;
+			padding: 10px;
+			top: 0;
+			flex-direction: column;
 		}
 
+
 		.stamp_item {
-			width: 60px;
+			width: 48px;
 		}
 
 		.product_info {

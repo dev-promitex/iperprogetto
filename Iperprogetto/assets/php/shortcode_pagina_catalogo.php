@@ -33,17 +33,20 @@ function get_products_custom_vendor_label(){
 			position: relative;
 		}
 		
-			.stamps_wrapper {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			display: flex;
-		}
+		.stamps_wrapper {    
+            position: absolute;    
+            left: 0;    
+            right: 0;    
+            display: flex;    
+            gap: 7px;    
+            padding: 10px;    
+            top: 0;    
+            flex-direction: column;
+        }
 
-		.stamp_item {
-			width: 60px;
-		}
+        .stamp_item {
+            width: 48px;
+        }
 		
 		.product_info{
 			max-width: 330px;
