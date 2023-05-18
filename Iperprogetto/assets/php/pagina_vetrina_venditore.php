@@ -303,30 +303,6 @@ function search_bar_prodotti_vetrina_()
 {
 ?>
 	<style>
-		/*.bar_vendor_winsow_wrapper {
-			display: flex;
-			border-radius: 15px;
-			justify-content: center;
-			position: relative;
-			background-color: whitesmoke;
-			width: 770px;
-			float: right;
-			margin-right: 13px;
-		}
-
-		#bar_vendor_winsow {
-			border: none;
-			border-radius: 15px;
-			min-height: 36.99px;
-			background-color: whitesmoke;
-		}
-
-		#button_bar_vendor_window {
-			min-width: 50px;
-			background: none;
-			border: none;
-		}*/
-
 		.custom-search-inputs-wrapper {
 			background: whitesmoke;
 			display: flex;
@@ -374,25 +350,6 @@ function search_bar_prodotti_vetrina_()
 		}
 	</style>
 
-	<!--<div class="bar_vendor_winsow_wrapper">
-		<input type="text" id="bar_vendor_winsow" placeholder="Cerca prodotti..." name="fast_search">
-		<button type="submit" id="button_bar_vendor_window"><i class="fa fa-search"></i></button>
-		<div id="search-sellers-results-wrapper">
-			<div id="close-search-sellers-results">
-				<div>X</div>
-			</div>
-			<div id="search-sellers-results"></div>
-		</div>
-		<div id="close-search-sellers-results">
-			<div>X</div>
-		</div>
-		<div id="search-sellers-results">
-			<div class="result-item">
-				<div class="result-item-content"><a href="https://iperprogetto.it/vetrina/?venditore=Nanosilv">Nanosilv Nanosilv</a></div>
-			</div>
-		</div>
-	</div>
-	</div>-->
 
 	<div class="custom-search-wrapper">
 		<div class="custom-search-inputs-wrapper">
@@ -411,56 +368,96 @@ function search_bar_prodotti_vetrina_()
 	</div>
 
 	<script>
-        jQuery(document).ready(function($) {
-            var searchInput = $('#search-sellers-input');
-            var resultsContainer = $('#search-sellers-results');
+		jQuery(document).ready(function($) {
 
-            searchInput.on('input', function() {
-                var searchQuery = searchInput.val();
-                $.ajax({
-                    url: ajax_object.ajax_url,
-                    type: 'POST',
-                    data: {
-                        action: 'search_sellers',
-                        search_query: searchQuery
-                    },
-                    beforeSend: function() {
+			var searchInput = $('#search-sellers-input');
 
-                        $("#search-sellers-results-wrapper").css("display", "block");
-                        $("#search-sellers-results").html("<div class=\"spinner-wrapper\"><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
-                    },
-                    success: function(response) {
+			//var resultsContainer_old = $('#product-vendor-anchor').html();
+			//var resultsContainer_new = $('#product-vendor-anchor');
+
+			//console.log(resultsContainer_old);
 
 
-                        resultsContainer.empty();
-                        $("#search-sellers-results-wrapper").css("display", "block");
-                        $("#search-sellers-results").html(response);
-                        if (response.length > 0) {
-                            $.each(response, function(index, seller) {
+			searchInput.on('input', function() {
+				var searchQuery = searchInput.val();
+				$.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					type: 'POST',
+					data: {
+						action: 'search_sellers_callback_vendor_window',
+						search_query: searchQuery,
+					},
+					beforeSend: function() {
 
-                                resultsContainer.append('<div class="result-item"><div class="result-item-content"><a href="https://iperprogetto.it/vetrina/?venditore=' + seller.url + '">' + seller.name + '</a></div></div>');
-                            });
-                        } else {
-                            resultsContainer.append('<p>Nessun venditore trovato.</p>');
-                        }
-                    }
-                });
-            });
+						// $("#search-sellers-results-wrapper").css("display", "block");
+						// $("#search-sellers-results").html("<div class=\"spinner-wrapper\"><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
+					},
+					success: function(response) {
 
-            $("#close-search-sellers-results").click(function() {
-                $("#search-sellers-results-wrapper").css("display", "none");
-
-            });
+						console.log(searchQuery);
+						console.log(response);
+						$("#product-vendor-anchor").html(response);
 
 
-        });
-    </script>
+
+
+
+						//resultsContainer_new.empty();
+
+						/*$("#product-vendor-anchor").html(response);
+						if (response.length > 0) {
+							$.each(response, function(index, product) {
+
+								resultsContainer_new.append('<div class="result-item"><div class="result-item-content"><a href="https://iperprogetto.it/vetrina/?venditore=' + vendor_login + '">' + product.titolo + '</a></div></div>');
+							});
+						} else {
+
+						}*/
+					}
+				});
+			});
+
+
+			/*$('#search-sellers-input').on('blur', function() {
+
+				var inputValue = $(this).val();
+
+				if (inputValue === '') {
+					// Esegui l'azione desiderata
+					$("#product-vendor-anchor").html(resultsContainer_old);
+				}
+
+			});*/
+
+
+
+
+
+		});
+	</script>
 
 <?php
-
-
 }
 add_shortcode('search_bar_prodotti_vetrina', 'search_bar_prodotti_vetrina_');
+
+
+
+
+
+
+
+// Aggiungi la funzione per la chiamata AJAX
+function search_sellers_callback_vendor_window()
+{
+	product_single_vendor($_POST['search_query']);
+	//echo 'TEST = '. $_POST['search_query'];
+}
+add_action('wp_ajax_search_sellers_callback_vendor_window', 'search_sellers_callback_vendor_window');
+add_action('wp_ajax_nopriv_search_sellers_callback_vendor_window', 'search_sellers_callback_vendor_window');
+
+
+
+
 
 function get_filter_products_vendor_sidebar_left_()
 {
@@ -792,12 +789,12 @@ function get_filter_products_vendor_sidebar_left_()
 add_shortcode('sidebar_left_filter_vendor_window', 'get_filter_products_vendor_sidebar_left_');
 
 
-function product_single_vendor()
+function product_single_vendor($search_query)
 {
 
-	if (verify_query_string() != 1) {
+	/*if (verify_query_string() != 1) {
 		return;
-	}
+	}*/
 
 
 	$html = '';
@@ -831,16 +828,20 @@ function product_single_vendor()
 		}
 		
 		
-		.stamps_wrapper {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			display: flex;
-		}
+		.stamps_wrapper {    
+			position: absolute;    
+			left: 0;    
+			right: 0;    
+			display: flex;    
+			gap: 7px;    
+			padding: 10px;    
+			top: 0;    
+			flex-direction: column;
+        }
+
 
 		.stamp_item {
-			width: 60px;
+			width: 48px;
 		}
 
 
@@ -915,7 +916,8 @@ function product_single_vendor()
 
 	</style>';
 
-
+	// crea array per query
+	$args = array();
 
 	// Crea un array vuoto per la meta query
 	$meta_query = array();
@@ -926,6 +928,10 @@ function product_single_vendor()
 	// Array di tassonomie già utilizzate
 	$used_taxonomies = array();
 
+	if (!empty($search_query)) {
+		$args['s'] = $search_query;
+		var_dump($_GET);
+	}
 
 	// Loop sui parametri passati alla funzione
 	foreach ($_GET as $key => $value) {
@@ -939,6 +945,7 @@ function product_single_vendor()
 
 
 		// Se il parametro fa riferimento all'ID del vendor, aggiungi una query meta
+
 		if ($key == "venditore") {
 
 			$venditore = get_user_by('login', $value);
@@ -989,17 +996,13 @@ function product_single_vendor()
 
 	// Aggiungi le query tassonomiche al parametro tax_query dell'array $args
 	$args['tax_query'] = array_merge(
-
 		$tax_queries,
 	);
-
 
 	// aggiunge il parametro meta_query che contine l'ID venditore per recuperare solo i suoi prodotti
 	if (!empty($meta_query)) {
 		$args['meta_query'] = $meta_query;
 	}
-
-
 
 	$args['posts_per_page'] = 9; //Imposta il numero di prodotti per pagina
 	$args['paged'] = $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; //ottieni la pagina corrente
@@ -1101,33 +1104,39 @@ function product_single_vendor()
 
 		$html .= '</div>';
 
+		if (empty($search_query)) {
 
-		$args_pagination = array(
+			$args_pagination = array(
 
-			'total' => $query->max_num_pages,
-			'current' => $paged,
-			'prev_next' => true,
-			'prev_text' => '<button class="pagination-item icon_in_button"><span class="dashicons dashicons-arrow-left-alt2"></span></button>',
-			'next_text' => '<button class="pagination-item icon_in_button"><span class="dashicons dashicons-arrow-right-alt2"></span></button>',
-			'mid_size'  => 1,
-			'end_size' => 1,
-			'before_page_number' => '<button class="pagination-item">',
-			'after_page_number' => '</button>',
-			'before_current' => '<button class="pagination-item current">',
-			'after_current' => '</button>',
+				'total' => $query->max_num_pages,
+				'current' => $paged,
+				'prev_next' => true,
+				'prev_text' => '<button class="pagination-item icon_in_button"><span class="dashicons dashicons-arrow-left-alt2"></span></button>',
+				'next_text' => '<button class="pagination-item icon_in_button"><span class="dashicons dashicons-arrow-right-alt2"></span></button>',
+				'mid_size'  => 1,
+				'end_size' => 1,
+				'before_page_number' => '<button class="pagination-item">',
+				'after_page_number' => '</button>',
+				'before_current' => '<button class="pagination-item current">',
+				'after_current' => '</button>',
 
-		);
+			);
 
 
 
-		$pagination = paginate_links($args_pagination);
+			$pagination = paginate_links($args_pagination);
 
-		$html .= '<div class="pagination">';
-		$html .=  $pagination;
-		$html .= '</div>';
+			$html .= '<div class="pagination">';
+			$html .=  $pagination;
+			$html .= '</div>';
+		}
 
 		wp_reset_postdata();
-	} else {
+
+	} 
+	
+	else 
+	{
 		$html = '<div style="width: 700px;display: flex;justify-content: center;margin-left: -155px;"><h2>Nessun prodotto trovato...</h2></div>';
 		return;
 	}
@@ -1135,6 +1144,9 @@ function product_single_vendor()
 	return $html;
 }
 add_shortcode('get_product_single_vendor', 'product_single_vendor');
+
+
+
 
 
 function get_assets_vendor()

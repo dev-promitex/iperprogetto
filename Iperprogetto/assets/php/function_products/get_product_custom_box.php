@@ -34,17 +34,20 @@ function get_product_custom_box($visited_products, $custom_name_css_class)
 		}
 		
 		
-		.stamps_wrapper {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			display: flex;
-		}
+		.stamps_wrapper {    
+            position: absolute;    
+            left: 0;    
+            right: 0;    
+            display: flex;    
+            gap: 7px;    
+            padding: 10px;    
+            top: 0;    
+            flex-direction: column;
+        }
 
-		.stamp_item {
-			width: 60px;
-		}
+        .stamp_item {
+            width: 48px;
+        }
 
 
 		.product_info{

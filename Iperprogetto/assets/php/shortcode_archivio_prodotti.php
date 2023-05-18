@@ -33,16 +33,19 @@ function get_products_custom_last_category($category_id){
 		}
 		
 		
-		.stamps_wrapper {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			display: flex;
+		.stamps_wrapper {    
+			position: absolute;    
+			left: 0;    
+			right: 0;    
+			display: flex;    
+			gap: 7px;    
+			padding: 10px;    
+			top: 0;    
+			flex-direction: column;
 		}
 
 		.stamp_item {
-			width: 60px;
+			width: 48px;
 		}
 
 
